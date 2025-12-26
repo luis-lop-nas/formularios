@@ -1,0 +1,554 @@
+\documentclass[10pt,a4paper]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{geometry}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\geometry{margin=2cm}
+
+\titleformat{\section}{\Large\bfseries}{\thesection}{1em}{}
+\titleformat{\subsection}{\large\bfseries}{\thesubsection}{1em}{}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.3em}
+
+\begin{document}
+
+\begin{center}
+\textbf{\LARGE FORMULARIO DE FÍSICA I - COMPLETO}
+\end{center}
+
+\hrulefill
+
+\section{CINEMÁTICA DE LA PARTÍCULA}
+
+\subsection*{GLOSARIO DE VARIABLES}
+\begin{itemize}[noitemsep]
+    \item $\vec{r}$ = vector posición (m)
+    \item $x, y, z$ = coordenadas (m)
+    \item $s$ = distancia recorrida sobre la trayectoria (m)
+    \item $t$ = tiempo (s)
+    \item $\vec{v}$ = vector velocidad (m/s), $v = |\vec{v}|$ = módulo
+    \item $\vec{a}$ = vector aceleración (m/s²)
+    \item $a_t$ = aceleración tangencial (m/s²)
+    \item $a_n$ = aceleración normal o centrípeta (m/s²)
+    \item $R$ o $\rho$ = radio de curvatura (m)
+    \item $\omega$ = velocidad angular (rad/s)
+    \item $\alpha$ = aceleración angular (rad/s²)
+    \item $\theta$ = ángulo (rad o °)
+    \item $g$ = aceleración de la gravedad ($\approx 9.8$ m/s²)
+\end{itemize}
+
+\subsection*{FÓRMULAS}
+
+\textbf{Definiciones Básicas:}
+\begin{align*}
+\text{Vector posición: } & \vec{r}(t) = (x(t), y(t), z(t)) \\
+\text{Velocidad instantánea: } & \vec{v}(t) = \frac{d\vec{r}}{dt} \\
+\text{Aceleración instantánea: } & \vec{a}(t) = \frac{d\vec{v}}{dt} = \frac{d^2\vec{r}}{dt^2} \\
+\text{Velocidad media: } & v_m = \frac{\Delta s}{\Delta t} = \frac{s_f - s_i}{t_f - t_i} \\
+\text{Aceleración media: } & a_m = \frac{\Delta v}{\Delta t} = \frac{v_f - v_i}{t_f - t_i}
+\end{align*}
+
+\textbf{Movimiento Rectilíneo Uniformemente Acelerado (MRUA):}
+\begin{align*}
+\text{Posición: } & x(t) = x_0 + v_0 t + \frac{1}{2}at^2 \\
+\text{Velocidad: } & v(t) = v_0 + at \\
+\text{Relación sin tiempo: } & v^2 = v_0^2 + 2a(x - x_0) \\
+\text{Velocidad con } a(x): & v\frac{dv}{ds} = a
+\end{align*}
+
+\textbf{Componentes Intrínsecas de la Aceleración:}
+\begin{align*}
+\text{Velocidad escalar: } & v = |\vec{v}| \\
+\text{Aceleración tangencial: } & a_t = \frac{dv}{dt} = \frac{\vec{a} \cdot \vec{v}}{|\vec{v}|} \\
+\text{Aceleración normal: } & a_n = \frac{v^2}{R} = \sqrt{|\vec{a}|^2 - a_t^2} \\
+\text{Aceleración total: } & |\vec{a}| = \sqrt{a_t^2 + a_n^2}
+\end{align*}
+
+\textbf{Radio de Curvatura:}
+\begin{align*}
+R = \frac{v^2}{a_n} \qquad R = \frac{|\vec{v}|^3}{|\vec{v} \times \vec{a}|}
+\end{align*}
+
+\textbf{Movimiento Circular:}
+\begin{align*}
+\text{Relaciones angulares: } & \omega = \frac{d\theta}{dt}, \quad \alpha = \frac{d\omega}{dt} \\
+\text{Velocidad lineal: } & v = \omega r \\
+\text{Aceleración centrípeta: } & a_c = a_n = \frac{v^2}{r} = \omega^2 r \\
+\text{Aceleración tangencial: } & a_t = \alpha r \\
+\text{Posición angular: } & \theta = \theta_0 + \omega_0 t + \frac{1}{2}\alpha t^2 \\
+\text{Velocidad angular: } & \omega = \omega_0 + \alpha t \\
+\text{Relación sin tiempo: } & \omega^2 = \omega_0^2 + 2\alpha(\theta - \theta_0)
+\end{align*}
+
+\textbf{Movimiento Parabólico (Tiro):}
+\begin{align*}
+\text{Posición horizontal: } & x(t) = x_0 + v_0\cos(\theta) \cdot t \\
+\text{Posición vertical: } & y(t) = y_0 + v_0\sin(\theta) \cdot t - \frac{1}{2}gt^2 \\
+\text{Velocidad horizontal: } & v_x = v_0\cos(\theta) \text{ (constante)} \\
+\text{Velocidad vertical: } & v_y = v_0\sin(\theta) - gt \\
+\text{Módulo de velocidad: } & |\vec{v}| = \sqrt{v_x^2 + v_y^2} \\
+\text{Alcance máximo (suelo plano): } & X_{max} = \frac{v_0^2\sin(2\theta)}{g} \\
+\text{Altura máxima: } & h_{max} = \frac{v_0^2\sin^2(\theta)}{2g} \\
+\text{Tiempo de vuelo (suelo plano): } & t_{vuelo} = \frac{2v_0\sin(\theta)}{g}
+\end{align*}
+
+\textbf{Integración de Velocidad:}
+\begin{align*}
+\text{Posición desde velocidad: } & x(t) = \int v(t)\,dt \\
+\text{Distancia como área: } & s = \text{área bajo la curva } v\text{-}t
+\end{align*}
+
+\hrulefill
+
+\section{DINÁMICA}
+
+\subsection*{GLOSARIO DE VARIABLES}
+\begin{itemize}[noitemsep]
+    \item $\vec{F}$ = fuerza (N)
+    \item $\sum \vec{F}$ = suma de fuerzas (N)
+    \item $m, M$ = masa (kg)
+    \item $\vec{a}$ = aceleración (m/s²)
+    \item $T$ = tensión (N)
+    \item $N$ = fuerza normal (N)
+    \item $f_r, f_s, f_k$ = fuerza de rozamiento (N)
+    \item $\mu$ = coeficiente de rozamiento (adimensional)
+    \item $\mu_s$ = coeficiente de rozamiento estático
+    \item $\mu_k$ = coeficiente de rozamiento cinético
+    \item $g$ = aceleración de la gravedad (9.8 m/s²)
+    \item $b$ = coeficiente de rozamiento viscoso (kg/s o kg/m)
+    \item $E$ = empuje (N)
+    \item $\rho$ = densidad (kg/m³)
+    \item $V$ = volumen (m³)
+    \item $R$ = radio (m)
+    \item $\vec{\tau}$ o $\vec{M}$ = momento de fuerza o torque (N·m)
+    \item $\vec{L}$ = momento angular (kg·m²/s)
+    \item $\vec{p}$ = momento lineal (kg·m/s)
+\end{itemize}
+
+\subsection*{FÓRMULAS}
+
+\textbf{Leyes de Newton:}
+\begin{align*}
+\text{Primera ley: } & \sum \vec{F} = 0 \rightarrow \vec{v} = \text{constante} \\
+\text{Segunda ley: } & \sum \vec{F} = m\vec{a} \\
+\text{Tercera ley: } & \vec{F}_{12} = -\vec{F}_{21}
+\end{align*}
+
+\textbf{Peso y Componentes:}
+\begin{align*}
+\text{Peso: } & \vec{P} = m\vec{g} \\
+\text{En plano inclinado (ángulo } \theta):& \\
+\text{Componente paralela: } & F_p = mg\sin(\theta) \\
+\text{Componente perpendicular: } & N = mg\cos(\theta)
+\end{align*}
+
+\textbf{Rozamiento:}
+\begin{align*}
+\text{Rozamiento estático máximo: } & f_s \leq \mu_s N \\
+\text{Rozamiento cinético: } & f_k = \mu_k N \\
+\text{Rozamiento viscoso (lineal): } & \vec{F}_{roz} = -b\vec{v} \\
+\text{Rozamiento aerodinámico (cuadrático): } & \vec{F}_{roz} = -bv^2\hat{v}
+\end{align*}
+
+\textbf{Máquina de Atwood (Ideal):}
+\begin{align*}
+\text{Aceleración: } & a = g\frac{m_2 - m_1}{m_1 + m_2} \\
+\text{Tensión: } & T = \frac{2m_1 m_2 g}{m_1 + m_2} \\
+\text{También: } & T = m_1(g + a) = m_2(g - a) \\
+\text{Tensión máxima: } & \text{cuando } m_1 = m_2 = M/2 \rightarrow T_{max} = \frac{Mg}{4}
+\end{align*}
+
+\textbf{Movimiento Circular:}
+\begin{align*}
+\text{Aceleración centrípeta: } & a_c = \frac{v^2}{R} = \omega^2 R \\
+\text{Fuerza centrípeta necesaria: } & \sum F_{rad} = \frac{mv^2}{R}
+\end{align*}
+
+\textbf{Curvas Peraltadas:}
+\begin{align*}
+\text{Sin rozamiento: } & \tan(\theta) = \frac{v^2}{Rg} \\
+\text{Con rozamiento: } & \sum F_x = \frac{mv^2}{R}, \quad \sum F_y = 0
+\end{align*}
+
+\textbf{Empuje (Principio de Arquímedes):}
+\begin{align*}
+E = \rho_{fluido} \cdot g \cdot V_{sumergido}
+\end{align*}
+
+\textbf{Movimiento en Fluidos:}
+\begin{align*}
+\text{Ecuación general: } & m\frac{dv}{dt} = mg - E - bv \\
+\text{Velocidad límite: } & v_{lim} = \frac{mg - E}{b} \\
+\text{Con rozamiento cuadrático: } & mg \approx bv_{lim}^2 \rightarrow b = \frac{mg}{v_{lim}^2}
+\end{align*}
+
+\textbf{Momento de una Fuerza (Torque):}
+\begin{align*}
+\vec{M} = \vec{r} \times \vec{F} \qquad |\vec{M}| = rF\sin(\theta)
+\end{align*}
+
+\textbf{Momento Angular:}
+\begin{align*}
+\vec{L} = \vec{r} \times \vec{p} = \vec{r} \times m\vec{v} \qquad \vec{\tau} = \frac{d\vec{L}}{dt}
+\end{align*}
+
+\textbf{Impulso:}
+\begin{align*}
+\text{Impulso lineal: } & \vec{J} = \int \vec{F}\,dt = \Delta \vec{p} \\
+\text{Impulso angular: } & \int \vec{\tau}\,dt = \Delta \vec{L}
+\end{align*}
+
+\hrulefill
+
+\section{TRABAJO Y ENERGÍA}
+
+\subsection*{GLOSARIO DE VARIABLES}
+\begin{itemize}[noitemsep]
+    \item $W$ = trabajo (J)
+    \item $\vec{F}$ = fuerza (N)
+    \item $\vec{d}$ o $\Delta \vec{r}$ = desplazamiento (m)
+    \item $d\vec{r}$ = desplazamiento diferencial (m)
+    \item $E_c$ o $K$ = energía cinética (J)
+    \item $E_p$ o $U$ = energía potencial (J)
+    \item $E_m$ = energía mecánica total (J)
+    \item $P$ = potencia (W)
+    \item $v$ = velocidad (m/s)
+    \item $h$ = altura (m)
+    \item $k$ = constante elástica (N/m)
+    \item $x$ = deformación/elongación del muelle (m)
+    \item $\nabla$ = operador gradiente
+    \item $\phi$ o $\theta$ = ángulo entre fuerza y desplazamiento (rad)
+\end{itemize}
+
+\subsection*{FÓRMULAS}
+
+\textbf{Trabajo:}
+\begin{align*}
+\text{Definición general: } & W = \int_{\mathcal{C}} \vec{F} \cdot d\vec{r} \\
+\text{Fuerza constante: } & W = \vec{F} \cdot \Delta \vec{r} = Fd\cos(\phi) \\
+\text{En 1D con fuerza variable: } & W = \int_{x_i}^{x_f} F(x)\,dx \\
+\text{Trayectoria cerrada (conservativa): } & W = 0
+\end{align*}
+
+\textbf{Energía Cinética:}
+\begin{align*}
+E_c = \frac{1}{2}mv^2 \qquad W_{neto} = \Delta E_c = E_{cf} - E_{ci}
+\end{align*}
+
+\textbf{Energía Potencial:}
+\begin{align*}
+\text{Gravitatoria: } & E_p = mgh \\
+\text{Elástica: } & E_p = \frac{1}{2}kx^2 \\
+\text{Relación fuerza-potencial: } & \vec{F} = -\nabla E_p = -\left(\frac{\partial E_p}{\partial x}, \frac{\partial E_p}{\partial y}, \frac{\partial E_p}{\partial z}\right) \\
+\text{Para fuerza conservativa: } & W = U_i - U_f = -\Delta U
+\end{align*}
+
+\textbf{Conservación de Energía:}
+\begin{align*}
+\text{Energía mecánica: } & E_m = E_c + E_p \\
+\text{Si solo fuerzas conservativas: } & E_{mi} = E_{mf} \rightarrow E_{ci} + E_{pi} = E_{cf} + E_{pf} \\
+\text{Con fuerzas no conservativas: } & W_{nc} = \Delta E_m = (E_c + E_p)_f - (E_c + E_p)_i \\
+\text{Con rozamiento: } & W_{roz} = \Delta E_m
+\end{align*}
+
+\textbf{Energía Disipada:}
+\begin{align*}
+\text{En choques inelásticos: } & E_{dis} = E_{c,inicial} - E_{c,final}
+\end{align*}
+
+\textbf{Potencia:}
+\begin{align*}
+\text{Potencia media: } & \bar{P} = \frac{W}{\Delta t} \\
+\text{Potencia instantánea: } & P = \frac{dW}{dt} = \vec{F} \cdot \vec{v} = Fv\cos(\phi)
+\end{align*}
+
+\textbf{Criterio de Fuerza Conservativa:}
+\begin{align*}
+\nabla \times \vec{F} = \vec{0} \qquad \text{En 2D: } \frac{\partial F_y}{\partial x} = \frac{\partial F_x}{\partial y}
+\end{align*}
+
+\textbf{Movimiento Circular Horizontal (con tensión):}
+\begin{align*}
+T = \frac{mv^2}{r} = m\omega^2 r \quad \text{(donde } \omega = 2\pi f)
+\end{align*}
+
+\textbf{Caída Libre:}
+\begin{align*}
+y(t) = y_0 - \frac{1}{2}gt^2 \qquad t = \sqrt{\frac{2y_0}{g}} \qquad x = v_x t
+\end{align*}
+
+\hrulefill
+
+\section{OSCILACIONES}
+
+\subsection*{GLOSARIO DE VARIABLES}
+\begin{itemize}[noitemsep]
+    \item $x$ = posición/desplazamiento respecto al equilibrio (m)
+    \item $A$ = amplitud (m)
+    \item $\omega$ = frecuencia angular (rad/s)
+    \item $\phi$ o $\delta$ = fase inicial (rad)
+    \item $f$ = frecuencia (Hz)
+    \item $T$ = periodo (s)
+    \item $k$ = constante elástica o recuperadora (N/m)
+    \item $m$ = masa (kg)
+    \item $L$ = longitud del péndulo (m)
+    \item $v$ = velocidad (m/s)
+    \item $a$ = aceleración (m/s²)
+    \item $E$ = energía total (J)
+    \item $\Delta \ell$ = elongación estática del muelle vertical (m)
+\end{itemize}
+
+\subsection*{FÓRMULAS}
+
+\textbf{Movimiento Armónico Simple (MAS) - Forma General:}
+\begin{align*}
+\text{Ecuación diferencial: } & \frac{d^2x}{dt^2} = -\omega^2 x \\
+\text{Posición: } & x(t) = A\cos(\omega t + \phi) \text{ o } x(t) = A\sin(\omega t + \phi) \\
+\text{Velocidad: } & v(t) = \dot{x} = -A\omega\sin(\omega t + \phi) \text{ [si usas cos]} \\
+& v(t) = A\omega\cos(\omega t + \phi) \text{ [si usas sin]} \\
+\text{Aceleración: } & a(t) = \ddot{x} = -A\omega^2\cos(\omega t + \phi) = -\omega^2 x(t)
+\end{align*}
+
+\textbf{Relaciones Temporales:}
+\begin{align*}
+\omega = 2\pi f = \frac{2\pi}{T} \qquad T = \frac{2\pi}{\omega} = \frac{1}{f} \qquad f = \frac{1}{T} = \frac{\omega}{2\pi}
+\end{align*}
+
+\textbf{Velocidad y Aceleración Máximas:}
+\begin{align*}
+v_{max} = A\omega \qquad a_{max} = A\omega^2
+\end{align*}
+
+\textbf{Muelle-Masa:}
+\begin{align*}
+\omega = \sqrt{\frac{k}{m}} \qquad T = 2\pi\sqrt{\frac{m}{k}}
+\end{align*}
+
+\textbf{Péndulo Simple (oscilaciones pequeñas):}
+\begin{align*}
+\omega = \sqrt{\frac{g}{L}} \qquad T = 2\pi\sqrt{\frac{L}{g}}
+\end{align*}
+
+\textbf{Energía en MAS:}
+\begin{align*}
+\text{Energía total (constante): } & E = \frac{1}{2}kA^2 = \frac{1}{2}m\omega^2 A^2 \\
+\text{Energía cinética: } & E_c = \frac{1}{2}mv^2 \\
+\text{Energía potencial elástica: } & E_p = \frac{1}{2}kx^2 \\
+\text{Relación velocidad-posición: } & v = \omega\sqrt{A^2 - x^2}
+\end{align*}
+
+\textbf{Condiciones Iniciales:}
+\begin{align*}
+\text{Si } x(0) = x_0 \text{ y } v(0) = v_0: \qquad A = \sqrt{x_0^2 + \left(\frac{v_0}{\omega}\right)^2}
+\end{align*}
+
+\textbf{Superposición de Seno y Coseno:}
+\begin{align*}
+\text{Si } x = C\sin(\omega t) + D\cos(\omega t): \qquad A = \sqrt{C^2 + D^2}
+\end{align*}
+
+\textbf{Muelle Vertical:}
+\begin{align*}
+\text{Elongación en equilibrio: } k\Delta \ell = mg
+\end{align*}
+
+\textbf{Oscilación por Empuje:}
+\begin{align*}
+\Delta E = \rho g A_{seccion} \cdot x \qquad \omega = \sqrt{\frac{\rho g A_{seccion}}{m}}
+\end{align*}
+
+\hrulefill
+
+\section{SISTEMAS DE PARTÍCULAS}
+
+\subsection*{GLOSARIO DE VARIABLES}
+\begin{itemize}[noitemsep]
+    \item $\vec{r}_{CM}$ o $\vec{R}_{CM}$ = posición del centro de masas (m)
+    \item $\vec{v}_{CM}$ o $\vec{V}_{CM}$ = velocidad del centro de masas (m/s)
+    \item $\vec{a}_{CM}$ = aceleración del centro de masas (m/s²)
+    \item $M$ o $M_{total}$ = masa total del sistema (kg)
+    \item $m_i$ = masa de la partícula $i$ (kg)
+    \item $\vec{r}_i$ = posición de la partícula $i$ (m)
+    \item $\vec{v}_i$ = velocidad de la partícula $i$ (m/s)
+    \item $\vec{p}$ = momento lineal total (kg·m/s)
+    \item $\vec{L}$ = momento angular (kg·m²/s)
+    \item $\vec{F}_{ext}$ = fuerza externa total (N)
+    \item $\vec{\tau}_{ext}$ = torque externo (N·m)
+    \item $\vec{J}$ = impulso (N·s)
+    \item $h$ = altura (m)
+\end{itemize}
+
+\subsection*{FÓRMULAS}
+
+\textbf{Centro de Masas:}
+\begin{align*}
+\text{Discreto: } & \vec{r}_{CM} = \frac{\sum m_i \vec{r}_i}{M} = \frac{\sum m_i \vec{r}_i}{\sum m_i} \\
+\text{Continuo: } & \vec{r}_{CM} = \frac{1}{M}\int \vec{r}\,dm \\
+\text{Velocidad: } & \vec{v}_{CM} = \frac{d\vec{r}_{CM}}{dt} = \frac{\sum m_i \vec{v}_i}{M} \\
+\text{Aceleración: } & \vec{a}_{CM} = \frac{d\vec{v}_{CM}}{dt} = \frac{\sum m_i \vec{a}_i}{M} = \frac{\vec{F}_{ext}}{M}
+\end{align*}
+
+\textbf{Momento Lineal:}
+\begin{align*}
+\vec{p} = \sum m_i \vec{v}_i = M\vec{v}_{CM} \qquad \vec{F}_{ext} = \frac{d\vec{p}}{dt}
+\end{align*}
+
+\textbf{Conservación: Si $\vec{F}_{ext} = 0 \rightarrow \vec{p} =$ constante}
+
+\textbf{Impulso:}
+\begin{align*}
+\vec{J} = \int \vec{F}\,dt = \Delta \vec{p}
+\end{align*}
+
+\textbf{Momento Angular:}
+\begin{align*}
+\vec{L} = \sum (\vec{r}_i \times m_i \vec{v}_i) \qquad \vec{\tau}_{ext} = \frac{d\vec{L}}{dt}
+\end{align*}
+
+\textbf{Conservación: Si $\vec{\tau}_{ext} = 0 \rightarrow \vec{L} =$ constante}
+
+\textbf{Colisiones:}
+\begin{itemize}[noitemsep]
+    \item Conservacion del momento: $\sum \vec{p}_{antes} = \sum \vec{p}_{despues}$
+    \item \textbf{Elástica:} Se conserva momento lineal y energía cinética
+    \item \textbf{Inelástica:} Se conserva momento lineal, NO energía cinética
+\end{itemize}
+
+\textbf{Colisión Elástica 1D (frontal):}
+\begin{align*}
+v_{1f} = \frac{(m_1 - m_2)v_{1i} + 2m_2 v_{2i}}{m_1 + m_2} \qquad v_{2f} = \frac{(m_2 - m_1)v_{2i} + 2m_1 v_{1i}}{m_1 + m_2}
+\end{align*}
+
+\textbf{Colisión Inelástica Perfecta (se pegan):}
+\begin{align*}
+v_f = \frac{m_1 v_1 + m_2 v_2}{m_1 + m_2}
+\end{align*}
+
+\textbf{Péndulo Balístico:}
+\begin{align*}
+\text{Choque: } mv = (M + m)V \qquad \text{Subida: } \frac{1}{2}(M + m)V^2 = (M + m)gh \\
+\text{Velocidad inicial: } v = \frac{M + m}{m}\sqrt{2gh}
+\end{align*}
+
+\hrulefill
+
+\section{SÓLIDO RÍGIDO Y ROTACIÓN}
+
+\subsection*{GLOSARIO DE VARIABLES}
+\begin{itemize}[noitemsep]
+    \item $I$ = momento de inercia (kg·m²)
+    \item $I_{CM}$ = momento de inercia respecto al centro de masas (kg·m²)
+    \item $\omega$ = velocidad angular (rad/s)
+    \item $\alpha$ = aceleración angular (rad/s²)
+    \item $\vec{\tau}$ o $\vec{M}$ = momento de fuerza o torque (N·m)
+    \item $\vec{L}$ = momento angular (kg·m²/s)
+    \item $E_{c,rot}$ o $K_{rot}$ = energía cinética de rotación (J)
+    \item $R$ = radio (m)
+    \item $L$ = longitud (barra) (m)
+    \item $d$ = distancia entre ejes paralelos (m)
+    \item $\lambda$ = densidad lineal de masa (kg/m)
+    \item $\sigma$ = densidad superficial de masa (kg/m²)
+\end{itemize}
+
+\subsection*{FÓRMULAS}
+
+\textbf{Centro de Masas (Continuo):}
+\begin{align*}
+\vec{r}_{CM} = \frac{1}{M}\int \vec{r}\,dm \qquad dm = \lambda(x)\,dx \text{ o } dm = \sigma(x,y)\,dA
+\end{align*}
+
+\textbf{Momento de Inercia:}
+\begin{align*}
+\text{Discreto: } I = \sum m_i r_i^2 \qquad \text{Continuo: } I = \int r^2\,dm
+\end{align*}
+
+\textbf{Teorema de Steiner (ejes paralelos):}
+\begin{align*}
+I = I_{CM} + Md^2
+\end{align*}
+
+\textbf{Momentos de Inercia Típicos:}
+\begin{align*}
+I_{\text{varilla (centro, }\perp\text{)}} &= \frac{1}{12}ML^2 \\
+I_{\text{varilla (extremo)}} &= \frac{1}{3}ML^2 \\
+I_{\text{disco/cilindro macizo (eje central)}} &= \frac{1}{2}MR^2 \\
+I_{\text{anillo/cilindro hueco (eje central)}} &= MR^2 \\
+I_{\text{esfera maciza (centro)}} &= \frac{2}{5}MR^2 \\
+I_{\text{esfera hueca (centro)}} &= \frac{2}{3}MR^2
+\end{align*}
+
+\textbf{Dinámica de Rotación:}
+\begin{align*}
+\sum \tau &= I\alpha \\
+\vec{L} &= I\vec{\omega} \quad (\text{eje fijo}) \\
+\vec{\tau} &= \frac{d\vec{L}}{dt}
+\end{align*}
+
+\textbf{Energía Cinética de Rotación:}
+\begin{align*}
+E_{c,rot} = \frac{1}{2}I\omega^2
+\end{align*}
+
+\textbf{Rodadura sin Deslizamiento:}
+\begin{align*}
+v_{CM} &= \omega R \\
+a_{CM} &= \alpha R \\
+mgh &= \frac{1}{2}mv^2 + \frac{1}{2}I\left(\frac{v}{R}\right)^2 \\
+v &= \sqrt{\frac{2gh}{1 + \frac{I}{mR^2}}}
+\end{align*}
+
+\textbf{Sistemas con Cuerdas/Poleas (con inercia):}
+\begin{align*}
+a &= \alpha R \\
+mg - T &= ma \\
+\tau &= TR = I\alpha \;\;\Rightarrow\;\; TR = I\left(\frac{a}{R}\right)
+\end{align*}
+
+\textbf{Conservación del Momento Angular:}
+\begin{align*}
+\text{Si } \vec{\tau}_{ext}\approx 0: \quad \vec{L}_i &= \vec{L}_f \\
+I_i\omega_i &= I_f\omega_f
+\end{align*}
+
+\textbf{Impulso Angular:}
+\begin{align*}
+\int \tau\,dt = \Delta L
+\end{align*}
+
+\textbf{Trabajo y Potencia en Rotación:}
+\begin{align*}
+W &= \int \tau\,d\theta \\
+P &= \tau\,\omega
+\end{align*}
+
+\textbf{Velocidad Angular por Impacto:}
+\begin{align*}
+Fx\,\Delta t &= \Delta L = I\omega \\
+\omega &= \frac{Fx\,\Delta t}{I}
+\end{align*}
+
+\hrulefill
+
+\section{CONSTANTES IMPORTANTES}
+\begin{itemize}[noitemsep]
+    \item $g = 9.8\ \text{m/s}^2$
+    \item $\rho_{\text{agua}} = 1000\ \text{kg/m}^3$
+    \item $\pi \approx 3.14159$
+\end{itemize}
+
+\section{CONVERSIONES ÚTILES}
+\begin{itemize}[noitemsep]
+    \item $1$ revolución $= 2\pi$ rad $= 360^\circ$
+    \item $1$ rpm $= \dfrac{2\pi}{60}\ \text{rad/s} \approx 0.1047\ \text{rad/s}$
+    \item $1\ \text{km/h} = \dfrac{1}{3.6}\ \text{m/s} \approx 0.278\ \text{m/s}$
+    \item $1\ \text{m/s} = 3.6\ \text{km/h}$
+    \item Frecuencia angular: $\omega = 2\pi f$ (con $f$ en Hz)
+\end{itemize}
+
+\end{document}
