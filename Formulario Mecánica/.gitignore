@@ -1,0 +1,101 @@
+# =========================
+# LaTeX / TeX build outputs
+# =========================
+
+## Core auxiliary files
+*.aux
+*.lof
+*.log
+*.lot
+*.fls
+*.out
+*.toc
+*.fmt
+*.fot
+*.cb
+*.cb2
+
+## Intermediate / extra aux
+*.acn
+*.acr
+*.alg
+*.glg
+*.glo
+*.gls
+*.glsdefs
+*.ist
+*.loa
+*.nav
+*.snm
+*.vrb
+*.synctex.gz
+*.synctex.gz(busy)
+*.fdb_latexmk
+*.xwm
+
+## Bibliography (BibTeX / Biber)
+*.bbl
+*.bcf
+*.blg
+*.run.xml
+
+## Index / glossaries
+*.idx
+*.ilg
+*.ind
+
+## TikZ/PGF and listings caches
+*.tdo
+*.dpth
+*.md5
+*.auxlock
+
+## LaTeXmk
+.latexmkrc
+latexmk.out
+latexmk.err
+
+## Build directories (common)
+build/
+out/
+_output/
+tmp/
+
+## Output PDFs (opcional: descomenta si NO quieres versionar PDFs)
+# *.pdf
+
+# =========================
+# Packages / tools specific
+# =========================
+
+## minted
+_minted*/
+*.pyg
+
+## arara
+*.arara
+
+## latexindent
+*.bak
+*.backup
+indent.log
+
+# =========================
+# Editors / OS
+# =========================
+
+## TeXstudio / TeXworks / TeXmaker
+*.synctex
+*.synctex(busy)
+*.synctex.gz
+*.synctex.gz(busy)
+
+## VS Code
+.vscode/
+
+## JetBrains
+.idea/
+
+## macOS / Windows
+.DS_Store
+Thumbs.db
