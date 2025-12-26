@@ -1,0 +1,500 @@
+\documentclass[10pt,a4paper]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{geometry}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\geometry{margin=2cm}
+
+\titleformat{\section}{\Large\bfseries}{\thesection}{1em}{}
+\titleformat{\subsection}{\large\bfseries}{\thesubsection}{1em}{}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.3em}
+
+\begin{document}
+
+\begin{center}
+\textbf{\LARGE FORMULARIO DE ECUACIONES DIFERENCIALES}
+\end{center}
+
+\hrulefill
+
+% ==========================================================
+\section{EDO DE PRIMER ORDEN}
+
+% --------------------------
+\subsection*{1) Variables separables}
+
+\textbf{Forma típica:}
+\[
+y' = f(x)\,g(y)
+\]
+
+\textbf{Cambio / propuesta:} separar variables.
+
+\textbf{Procedimiento:}
+\begin{enumerate}[noitemsep]
+  \item \(\dfrac{dy}{g(y)} = f(x)\,dx\)
+  \item Integrar: \(\displaystyle \int \frac{dy}{g(y)}=\int f(x)\,dx + C\)
+  \item Aplicar condición inicial si existe.
+\end{enumerate}
+
+\textbf{Ejemplo de forma:} \(y'=-\sin x\,y^2\).
+
+\hrulefill
+
+% --------------------------
+\subsection*{2) Lineal de 1\textsuperscript{er} orden (factor integrante)}
+
+\textbf{Forma típica:}
+\[
+y' + p(x)y = q(x)
+\]
+
+\textbf{Cambio / propuesta:} factor integrante
+\[
+\mu(x)=e^{\int p(x)\,dx}.
+\]
+
+\textbf{Procedimiento:}
+\begin{enumerate}[noitemsep]
+  \item Multiplicar por \(\mu\): \(\mu y' + \mu p\,y = \mu q\)
+  \item Reconocer: \((\mu y)'=\mu q\)
+  \item Integrar: \(\mu y=\int \mu q\,dx + C\)
+  \item Despejar:
+  \[
+  y=\frac{1}{\mu(x)}\left(\int \mu(x)\,q(x)\,dx + C\right).
+  \]
+\end{enumerate}
+
+\textbf{Ejemplo de forma:} \(y'+2y=e^{-x}\).
+
+\hrulefill
+
+% --------------------------
+\subsection*{3) Bernoulli}
+
+\textbf{Forma típica:}
+\[
+y'+p(x)y=q(x)y^n,\qquad n\neq 0,1
+\]
+
+\textbf{Cambio:}
+\[
+u=y^{\,1-n}\quad \Rightarrow \quad u'=(1-n)y^{-n}y'.
+\]
+
+\textbf{Procedimiento:}
+\begin{enumerate}[noitemsep]
+  \item Multiplicar por \(y^{-n}\) y sustituir \(u\).
+  \item Queda lineal:
+  \[
+  u' + (1-n)p(x)\,u = (1-n)q(x).
+  \]
+  \item Resolver con factor integrante y volver a \(y=u^{1/(1-n)}\).
+\end{enumerate}
+
+\textbf{Ejemplo de forma:} \(y'+2xy=2xy^2\).
+
+\hrulefill
+
+% --------------------------
+\subsection*{4) Homogénea de 1\textsuperscript{er} orden (sustitución \(y=vx\))}
+
+\textbf{Forma típica:}
+\[
+y'=F\!\left(\frac{y}{x}\right)
+\]
+
+\textbf{Cambio:}
+\[
+y=vx \quad\Rightarrow\quad y'=v+xv'.
+\]
+
+\textbf{Procedimiento:}
+\begin{enumerate}[noitemsep]
+  \item Sustituir: \(v+xv'=F(v)\)
+  \item Separar:
+  \[
+  \frac{dv}{F(v)-v}=\frac{dx}{x}
+  \]
+  \item Integrar y volver a \(y=vx\).
+\end{enumerate}
+
+\textbf{Ejemplo de forma:} \(x y' = y + x\cos^2(y/x)\).
+
+\hrulefill
+
+% --------------------------
+\subsection*{5) Exacta}
+
+\textbf{Forma típica:}
+\[
+M(x,y)\,dx+N(x,y)\,dy=0
+\]
+
+\textbf{Criterio de exactitud:}
+\[
+\frac{\partial M}{\partial y}=\frac{\partial N}{\partial x}.
+\]
+
+\textbf{Procedimiento:}
+\begin{enumerate}[noitemsep]
+  \item Hallar \(\Phi\) tal que \(d\Phi=Mdx+Ndy\).
+  \item \(\displaystyle \Phi(x,y)=\int M(x,y)\,dx+g(y)\).
+  \item Derivar respecto a \(y\), igualar a \(N\) y obtener \(g(y)\).
+  \item Solución implícita: \(\Phi(x,y)=C\).
+\end{enumerate}
+
+\textbf{Ejemplo de forma:} \((x+\sin x+\cos x)\,dx+\cos y\,dy=0\).
+
+\hrulefill
+
+% --------------------------
+\subsection*{6) No exacta con factor integrante \(\mu(x)\) o \(\mu(y)\)}
+
+\textbf{Forma:}
+\[
+M(x,y)\,dx+N(x,y)\,dy=0
+\quad \text{(no exacta)}.
+\]
+
+\textbf{Criterios:}
+
+Si
+\[
+\frac{1}{N}\left(\frac{\partial M}{\partial y}-\frac{\partial N}{\partial x}\right)=f(x),
+\quad \Rightarrow \quad
+\mu(x)=e^{\int f(x)\,dx}.
+\]
+
+Si
+\[
+\frac{1}{M}\left(\frac{\partial N}{\partial x}-\frac{\partial M}{\partial y}\right)=g(y),
+\quad \Rightarrow \quad
+\mu(y)=e^{\int g(y)\,dy}.
+\]
+
+\textbf{Procedimiento:}
+\begin{enumerate}[noitemsep]
+  \item Detectar si el criterio depende solo de \(x\) o solo de \(y\).
+  \item Multiplicar toda la ecuación por \(\mu\) y convertirla en exacta.
+  \item Resolver con el método del potencial \(\Phi\).
+\end{enumerate}
+
+\hrulefill
+
+% --------------------------
+\subsection*{7) Dependencia \(x\pm y\) (sustitución \(u=x\pm y\))}
+
+\textbf{Forma típica:} aparece \(x-y\) o \(x+y\), p.ej. \(y'=F(x-y)\).
+
+\textbf{Cambio (caso \(u=x-y\)):}
+\[
+u=x-y \quad\Rightarrow\quad u'=1-y'.
+\]
+
+\textbf{Procedimiento:}
+\begin{enumerate}[noitemsep]
+  \item Sustituir \(y'=1-u'\) en la EDO.
+  \item Resolver la EDO resultante (normalmente separable/lineal) para \(u(x)\).
+  \item Volver a \(y=x-u\) (o \(y=u-x\) según el caso).
+\end{enumerate}
+
+\textbf{Ejemplo de forma:} \(y'=\sin(x-y)\).
+
+\hrulefill
+
+% --------------------------
+\subsection*{8) Sustitución \(u=\ln y\)}
+
+\textbf{Forma típica:}
+\[
+y'=\frac{y\ln y}{x}
+\quad \text{o} \quad
+y\ln y\,dx+x\,dy=0.
+\]
+
+\textbf{Cambio:}
+\[
+u=\ln y \quad\Rightarrow\quad y'=yu'.
+\]
+
+\textbf{Procedimiento:}
+\begin{enumerate}[noitemsep]
+  \item Sustituir \(y'=yu'\).
+  \item Resolver la EDO en \(u(x)\) (separable/lineal).
+  \item Volver: \(y=e^u\).
+\end{enumerate}
+
+\hrulefill
+
+% --------------------------
+\subsection*{9) Riccati}
+
+\textbf{Forma típica:}
+\[
+y'=a(x)y^2+b(x)y+c(x).
+\]
+
+\textbf{Cambio (si se conoce una particular \(y_1\)):}
+\[
+y=y_1+\frac{1}{v}.
+\]
+
+\textbf{Procedimiento:}
+\begin{enumerate}[noitemsep]
+  \item Sustituir \(y=y_1+\frac{1}{v}\) y simplificar.
+  \item Queda lineal en \(v\):
+  \[
+  v'+(2a y_1+b)v+a=0.
+  \]
+  \item Resolver con factor integrante y volver a \(y\).
+\end{enumerate}
+
+\hrulefill
+
+% --------------------------
+\subsection*{10) Clairaut y Lagrange}
+
+\textbf{Idea común:} definir \(p=y'\).
+
+\subsubsection*{10A) Clairaut}
+
+\textbf{Forma:}
+\[
+y=xp+f(p),\qquad p=y'.
+\]
+
+\textbf{Procedimiento:}
+\begin{enumerate}[noitemsep]
+  \item Derivar:
+  \[
+  p=p+xp'+f'(p)p' \Rightarrow (x+f'(p))p'=0.
+  \]
+  \item Familia: \(p=C\Rightarrow y=Cx+f(C)\).
+  \item Singular: \(x=-f'(p)\) y \(y=xp+f(p)\).
+\end{enumerate}
+
+\textbf{Ejemplo de forma:} \(y=xy'+(y')^2\).
+
+\subsubsection*{10B) Lagrange}
+
+\textbf{Forma:}
+\[
+y=x\phi(p)+\psi(p),\qquad p=y'.
+\]
+
+\textbf{Procedimiento (resumen):}
+\begin{enumerate}[noitemsep]
+  \item Derivar y obtener una EDO lineal para \(x(p)\).
+  \item Resolver \(x(p)\).
+  \item Recuperar \(y=x\phi(p)+\psi(p)\).
+\end{enumerate}
+
+\hrulefill
+
+% ==========================================================
+\section{EDO DE ORDEN 2 (Y SUPERIOR)}
+
+\subsection*{11) Lineal homogénea con coeficientes constantes}
+
+\textbf{Forma:}
+\[
+y''+ay'+by=0.
+\]
+
+\textbf{Propuesta:} \(y=e^{rx}\).
+
+\textbf{Procedimiento:}
+\begin{enumerate}[noitemsep]
+  \item Característica: \(r^2+ar+b=0\).
+  \item Según raíces:
+  \begin{itemize}[noitemsep]
+    \item \(r_1\neq r_2:\; y=C_1e^{r_1x}+C_2e^{r_2x}\).
+    \item doble \(r:\; y=(C_1+C_2x)e^{rx}\).
+    \item \(\alpha\pm i\beta:\; y=e^{\alpha x}(C_1\cos\beta x+C_2\sin\beta x)\).
+  \end{itemize}
+\end{enumerate}
+
+\hrulefill
+
+\subsection*{12) Lineal no homogénea con coeficientes constantes}
+
+\textbf{Forma:}
+\[
+y''+ay'+by=g(x).
+\]
+
+\textbf{Métodos:} coeficientes indeterminados o variación de parámetros.
+
+\textbf{Procedimiento (indeterminados):}
+\begin{enumerate}[noitemsep]
+  \item Hallar \(y_h\).
+  \item Proponer \(y_p\) según la forma de \(g(x)\).
+  \item Si hay resonancia, multiplicar por \(x\) lo necesario.
+  \item Solución: \(y=y_h+y_p\).
+\end{enumerate}
+
+\hrulefill
+
+\subsection*{13) Cauchy--Euler (equidimensional)}
+
+\textbf{Forma:}
+\[
+x^2y''+a x y'+b y=0.
+\]
+
+\textbf{Propuesta:} \(y=x^m\) (con \(x\neq 0\)).
+
+\textbf{Procedimiento:}
+\begin{enumerate}[noitemsep]
+  \item Sustituir \(y=x^m\) y obtener ecuación indicial en \(m\).
+  \item Resolver como una característica (raíces distintas/doble/complejas).
+  \item Alternativa: \(x=e^t\) reduce a coeficientes constantes.
+\end{enumerate}
+
+\hrulefill
+
+% ==========================================================
+\section{MÉTODOS DE SERIES}
+
+\subsection*{14) Series de potencias (punto ordinario)}
+
+\textbf{Forma:}
+\[
+y''+P(x)y'+Q(x)y=0
+\quad \text{con }P,Q\text{ analíticas en }x_0.
+\]
+
+\textbf{Propuesta:}
+\[
+y=\sum_{n=0}^\infty a_n (x-x_0)^n.
+\]
+
+\textbf{Procedimiento:}
+\begin{enumerate}[noitemsep]
+  \item Calcular \(y',y''\) en serie.
+  \item Sustituir, agrupar potencias y obtener recurrencia.
+  \item \(a_0,a_1\) libres \(\Rightarrow\) dos soluciones LI.
+\end{enumerate}
+
+\hrulefill
+
+\subsection*{15) Frobenius (punto singular regular)}
+
+\textbf{Forma:}
+\[
+x^2y''+x p(x)y'+q(x)y=0
+\quad \text{con }p,q\text{ analíticas en }0.
+\]
+
+\textbf{Propuesta:}
+\[
+y=\sum_{n=0}^\infty a_n x^{n+r}.
+\]
+
+\textbf{Procedimiento:}
+\begin{enumerate}[noitemsep]
+  \item Sustituir y obtener ecuación indicial (para \(r\)).
+  \item Hallar \(r_1,r_2\) y la recurrencia para \(a_n\).
+  \item Si \(r_1-r_2\in\mathbb{Z}\) o coinciden \(\Rightarrow\) puede aparecer \(\ln x\).
+\end{enumerate}
+
+\hrulefill
+
+\subsection*{16) Ecuaciones especiales por series}
+
+\textbf{Airy:}
+\[
+y''\pm xy=0.
+\]
+
+\textbf{Chebyshev:}
+\[
+(1-x^2)y''-xy'+p^2y=0.
+\]
+
+\textbf{Truco tipo Hermite (dado):}
+Si
+\[
+y''+\left(p+\frac12-\frac{x^2}{4}\right)y=0,
+\quad \text{usar}\quad
+y=w(x)e^{-x^2/4}.
+\]
+
+\hrulefill
+
+% ==========================================================
+\section{SISTEMAS DE EDO}
+
+\subsection*{17) Sistemas lineales homogéneos con matriz constante}
+
+\textbf{Forma:}
+\[
+\dot{\mathbf x}=A\mathbf x.
+\]
+
+\textbf{Propuesta:} \(\mathbf x(t)=e^{At}\mathbf x(0)\) o combinación de \(e^{\lambda t}\mathbf v\).
+
+\textbf{Procedimiento:}
+\begin{enumerate}[noitemsep]
+  \item Calcular autovalores \(\lambda\) y autovectores \(\mathbf v\).
+  \item Si diagonalizable: \(A=PDP^{-1}\Rightarrow e^{At}=Pe^{Dt}P^{-1}\).
+  \item \(\mathbf x(t)=\sum_k C_k e^{\lambda_k t}\mathbf v_k\).
+\end{enumerate}
+
+\hrulefill
+
+\subsection*{18) Sistemas lineales no homogéneos}
+
+\textbf{Forma:}
+\[
+\dot{\mathbf x}=A\mathbf x+\mathbf b(t).
+\]
+
+\textbf{Variación de constantes:}
+\[
+\mathbf x(t)=e^{At}\left(\mathbf c+\int e^{-At}\mathbf b(t)\,dt\right).
+\]
+
+\hrulefill
+
+\subsection*{19) Sistemas no lineales: puntos críticos y linealización}
+
+\textbf{Forma:} \(\dot x=f(x,y)\), \(\dot y=g(x,y)\).
+
+\textbf{Procedimiento:}
+\begin{enumerate}[noitemsep]
+  \item Puntos críticos: \(f=0\), \(g=0\).
+  \item Jacobiano:
+  \[
+  J=
+  \begin{pmatrix}
+  \partial f/\partial x & \partial f/\partial y\\
+  \partial g/\partial x & \partial g/\partial y
+  \end{pmatrix}.
+  \]
+  \item Linealizar: \(\dot{\mathbf u}=J(\mathbf u_0)\mathbf u\).
+  \item Clasificar por autovalores (nodo, silla, foco, centro).
+\end{enumerate}
+
+\hrulefill
+
+\subsection*{20) Estabilidad 2D lineal (traza/determinante)}
+
+Para \(A=\begin{pmatrix}a&b\\c&d\end{pmatrix}\):
+
+\textbf{Asintóticamente estable} si
+\[
+\operatorname{tr}(A)=a+d<0,
+\qquad
+\det(A)=ad-bc>0.
+\]
+
+\end{document}
